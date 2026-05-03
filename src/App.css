@@ -1,3 +1,9 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
 body {
   font-family: "Google Sans", sans-serif;
   font-optical-sizing: auto;
@@ -100,4 +106,28 @@ body {
 
 .submit_task:hover {
   background-color: #1E293B;
+}
+
+.output_task_data {
+  padding: 20px 10px;
+}
+
+.output_task_data table {
+  width: 100%;
+}
+
+.output_task_data thead tr td {
+  width: 25%;
+  border-collapse: collapse;
+  border: 2px solid #363636;
+  text-align: center;
+  color: #312E81;
+  font-weight: 500;
+}
+
+.output_task_data tbody tr td {
+  width: 25%;
+  border-collapse: collapse;
+  border: 2px solid #363636;
+  padding: 8px 10px;
 }

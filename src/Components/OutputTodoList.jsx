@@ -1,6 +1,6 @@
 import React from "react";
 
-function OutputTodoList () {
+function OutputTodoList ({ data }) {
     return (
         <div className="">
             <div className="container">
@@ -17,12 +17,13 @@ function OutputTodoList () {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Faysal</td>
-                                    <td>I am Faysal</td>
-                                    <td>04/29/2026</td>
-                                    <td>X</td>
-                                </tr>
+                                {data.map((task, id) => (
+                                    <tr key={id}>
+                                        <td>{task.title}</td>
+                                        <td>{task.description}</td>
+                                        <td>{task.date}</td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>

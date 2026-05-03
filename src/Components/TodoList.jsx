@@ -5,6 +5,7 @@ function TodoList () {
     const [taskTitle, setTaskTitle] = useState("");
     const [taskDescription, setTaskDescription] = useState("");
     const [taskDate, setTaskDate] = useState("");
+    const [taskList, setTaskList] = useState([]);
 
     function handleToDO (e, field) {
         if (field === "title") {
@@ -22,6 +23,10 @@ function TodoList () {
     }
 
     console.log("Task: ", taskTitle , "Description: ", taskDescription, "Date: ", taskDate);
+
+    const handleAddTask = () => {
+        setTaskList(taskTitle, taskDescription, taskDate);
+    }
 
 
     return (
@@ -41,7 +46,7 @@ function TodoList () {
                     <input onChange={(e) => handleToDO(e, "date")} type="date" name="" id="" placeholder="Type Your Task Date Here. . . " className="task_title_box" />
                 </div>
                 <div className="form_control">
-                    <button type="button" className="submit_task">Add Task</button>
+                    <button onClick={handleAddTask()} type="button" className="submit_task">Add Task</button>
                 </div>
             </div>
         </div>
