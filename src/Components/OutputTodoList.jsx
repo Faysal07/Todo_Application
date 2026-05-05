@@ -1,4 +1,5 @@
 import React from "react";
+import { CircleX } from 'lucide-react';
 
 function OutputTodoList ({ data }) {
     return (
@@ -22,6 +23,7 @@ function OutputTodoList ({ data }) {
                                         <td>{task.title}</td>
                                         <td>{task.description}</td>
                                         <td>{task.date}</td>
+                                        <td><button><CircleX /></button></td>
                                     </tr>
                                 ))}
                             </tbody>
