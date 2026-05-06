@@ -1,7 +1,7 @@
 import React from "react";
 import { CircleX } from 'lucide-react';
 
-function OutputTodoList ({ data }) {
+function OutputTodoList ({ data, handleDeleteTask }) {
     return (
         <div className="">
             <div className="container">
@@ -23,7 +23,7 @@ function OutputTodoList ({ data }) {
                                         <td>{task.title}</td>
                                         <td>{task.description}</td>
                                         <td>{task.date}</td>
-                                        <td><button><CircleX /></button></td>
+                                        <td><button onClick={()=> handleDeleteTask(task.id)}><CircleX /></button></td>
                                     </tr>
                                 ))}
                             </tbody>

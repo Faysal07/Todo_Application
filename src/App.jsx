@@ -8,7 +8,7 @@ import OutputTodoList from "./Components/OutputTodoList";
 
 function App() {
 
-  const [taskTitle, setTaskTitle] = useState("");
+      const [taskTitle, setTaskTitle] = useState("");
       const [taskDescription, setTaskDescription] = useState("");
       const [taskDate, setTaskDate] = useState("");
       const [taskList, setTaskList] = useState([]);
@@ -32,13 +32,32 @@ function App() {
   
       const handleAddTask = () => {
         const newTask = {
+          id: Date.now(), // unique id
           title: taskTitle,
           description: taskDescription,
           date: taskDate,
         };
 
         setTaskList([...taskList, newTask]);
+
+        setTaskTitle ("");
+        setTaskDescription ("");
+        setTaskDate ("");
       };
+
+      const handleDeleteTask = (id) => {
+        const deleteResp = taskList.filter((task) => task.id !== id);
+        setTaskList(deleteResp);
+
+        console.log("Delete Task:", id);
+      };
+
+      // const handleCleanTask = () => {
+      //   setTaskTitle ("");
+      //   setTaskDescription ("");
+      //   setTaskDate ("");
+      // };
+
 
   return (
     <>
@@ -52,15 +71,15 @@ function App() {
                 <span className="input_task">Input Task</span>
                 <div className="form_control">
                     <label className="task_title">Task Title</label>
-                    <input onChange={(e) => handleToDO(e, "title")} type="text" name="" id="" placeholder="Type Your Task Title Here. . . " className="task_title_box" />
+                    <input onChange={(e) => handleToDO(e, "title")}  value={taskTitle} type="text" name="" id="" placeholder="Type Your Task Title Here. . . " className="task_title_box" />
                 </div>
                 <div className="form_control">
                     <label className="task_title">Task Description</label>
-                    <textarea onChange={(e) => handleToDO(e, "description")} name="" id="" cols="10" rows="3" placeholder="Type Your Task Description Here. . . " className="task_title_box"></textarea>
+                    <textarea onChange={(e) => handleToDO(e, "description")}  value={taskDescription} name="" id="" cols="10" rows="3" placeholder="Type Your Task Description Here. . . " className="task_title_box"></textarea>
                 </div>
                 <div className="form_control">
                     <label className="task_title">Task Date</label>
-                    <input onChange={(e) => handleToDO(e, "date")} type="date" name="" id="" placeholder="Type Your Task Date Here. . . " className="task_title_box" />
+                    <input onChange={(e) => handleToDO(e, "date")} type="date" value={taskDate} name="" id="" placeholder="Type Your Task Date Here. . . " className="task_title_box" />
                 </div>
                 <div className="form_control">
                     <button onClick={handleAddTask} type="button" className="submit_task">Add Task</button>
@@ -68,7 +87,7 @@ function App() {
             </div>
           </div>
           <div className='todo_output'>
-            <OutputTodoList data={taskList} />
+            <OutputTodoList data={taskList} handleDeleteTask={handleDeleteTask} />
           </div>
         </div>
       </div>
