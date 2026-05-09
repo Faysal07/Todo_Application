@@ -71,15 +71,21 @@ function App() {
                 <span className="input_task">Input Task</span>
                 <div className="form_control">
                     <label className="task_title">Task Title</label>
-                    <input onChange={(e) => handleToDO(e, "title")}  value={taskTitle} type="text" name="" id="" placeholder="Type Your Task Title Here. . . " className="task_title_box" />
+                    <input onBlur={(e) => handleToDO(e, "title")}  
+                    // value={taskTitle} 
+                    type="text" name="" id="" placeholder="Type Your Task Title Here. . . " className="task_title_box" />
                 </div>
                 <div className="form_control">
                     <label className="task_title">Task Description</label>
-                    <textarea onChange={(e) => handleToDO(e, "description")}  value={taskDescription} name="" id="" cols="10" rows="3" placeholder="Type Your Task Description Here. . . " className="task_title_box"></textarea>
+                    <textarea onBlur={(e) => handleToDO(e, "description")}  
+                    // value={taskDescription} 
+                    name="" id="" cols="10" rows="3" placeholder="Type Your Task Description Here. . . " className="task_title_box"></textarea>
                 </div>
                 <div className="form_control">
                     <label className="task_title">Task Date</label>
-                    <input onChange={(e) => handleToDO(e, "date")} type="date" value={taskDate} name="" id="" placeholder="Type Your Task Date Here. . . " className="task_title_box" />
+                    <input onBlur={(e) => handleToDO(e, "date")} type="date" 
+                    // value={taskDate} 
+                    name="" id="" placeholder="Type Your Task Date Here. . . " className="task_title_box" />
                 </div>
                 <div className="form_control">
                     <button onClick={handleAddTask} type="button" className="submit_task">Add Task</button>
